@@ -9,7 +9,7 @@ import Foundation
 
 struct JSONHelper {
     func loadJsonDataFromFile() -> ([TeamsModel]?) {
-        guard let url = Bundle.main.url(forResource: "TeamsData", withExtension: "json") else { return nil }
+        guard let url = Bundle.main.url(forResource: "TeamsaaData", withExtension: "json") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         if let mainData = decodeData(data: data) {
             return mainData

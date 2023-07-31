@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchServices: AnyObject {
     func reloadData()
+    func showError()
 }
 
 struct SearchViewModel {
@@ -24,6 +25,8 @@ struct SearchViewModel {
     mutating func getTeamsData(){
         if let teamsResponseArray = jsonHelper.loadJsonDataFromFile() {
             teamData = teamsResponseArray
+        }else {
+            delegate?.showError()
         }
     }
 }

@@ -12,7 +12,7 @@ class SearchController : UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchListTableView: UITableView!
-    @IBOutlet weak var noItemDemo: UILabel!
+    @IBOutlet weak var noItemLbl: UILabel!
     
     lazy var viewModel = SearchViewModel()
     override func viewDidLoad() {
@@ -37,6 +37,9 @@ class SearchController : UIViewController {
 }
 
 extension SearchController : SearchServices {
+    func showError() {
+        searchListTableView.isHidden = true
+    }
     func reloadData() {
         searchListTableView.reloadData()
     }

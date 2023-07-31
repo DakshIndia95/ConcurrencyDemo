@@ -12,6 +12,7 @@ class ProfileController : UIViewController {
     
     @IBOutlet weak var userTableView: UITableView!
     @IBOutlet weak var noUserLbl: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     lazy var profileViewModel = ProfileViewModel()
     
@@ -30,6 +31,7 @@ class ProfileController : UIViewController {
     }
     
     func fetchUsersFromViewModel(){
+        activityIndicator.startAnimating()
         profileViewModel.delegate = self
         profileViewModel.fetchUserUsingAsync()
     }
@@ -37,11 +39,12 @@ class ProfileController : UIViewController {
 
 extension ProfileController: ProfileServices{
     func reloadData() {
+        activityIndicator.isHidden = true
         userTableView.reloadData()
     }
     
     func showError(error: Error) {
-        print("error: \(error)")
+        activityIndicator.isHidden = true
         userTableView.isHidden = true
     }
 }
