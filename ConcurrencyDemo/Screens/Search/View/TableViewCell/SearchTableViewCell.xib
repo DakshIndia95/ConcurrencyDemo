@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="SearchTableViewCell" customModule="ConcurrencyDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="332" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="India" translatesAutoresizingMaskIntoConstraints="NO" id="kxs-KC-V7w">
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="1sw-Sf-45D"/>
+                            <constraint firstAttribute="height" constant="40" id="9eN-2Z-iIJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chelsea" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOE-ve-pep">
+                        <rect key="frame" x="56" y="20" width="268" height="16"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="kxs-KC-V7w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0pE-Fi-OkS"/>
+                    <constraint firstItem="kxs-KC-V7w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1Gf-5d-5lX"/>
+                    <constraint firstItem="LOE-ve-pep" firstAttribute="centerY" secondItem="kxs-KC-V7w" secondAttribute="centerY" id="3Xj-pE-9lC"/>
+                    <constraint firstItem="LOE-ve-pep" firstAttribute="leading" secondItem="kxs-KC-V7w" secondAttribute="trailing" constant="8" id="BGK-3K-smX"/>
+                    <constraint firstAttribute="trailing" secondItem="LOE-ve-pep" secondAttribute="trailing" constant="8" id="bfA-od-BBT"/>
+                    <constraint firstAttribute="bottom" secondItem="kxs-KC-V7w" secondAttribute="bottom" constant="8" id="bg0-jD-fAA"/>
+                    <constraint firstItem="kxs-KC-V7w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="obT-8m-BZq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="teamImageView" destination="kxs-KC-V7w" id="AIc-YM-k5p"/>
+                <outlet property="teamLbl" destination="LOE-ve-pep" id="Dbn-E3-xVA"/>
+            </connections>
+            <point key="canvasLocation" x="16.923076923076923" y="28.791469194312796"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="India" width="1920" height="1080"/>
+    </resources>
+</document>
