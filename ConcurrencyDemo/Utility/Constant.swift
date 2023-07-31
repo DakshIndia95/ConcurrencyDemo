@@ -9,6 +9,7 @@ import Foundation
 
 struct AppUrl {
     static let userUrl = "https://jsonplaceholder.typicode.com/users"
+    static let animalURL = "https://api-dev-scus-demo.azurewebsites.net/api/Animal/SearchAnimal?name="
 }
 
 struct CellIdentifier {

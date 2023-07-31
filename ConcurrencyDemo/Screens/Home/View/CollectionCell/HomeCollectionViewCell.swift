@@ -9,6 +9,8 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var animalImg: CustomImageview!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

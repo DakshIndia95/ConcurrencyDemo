@@ -10,9 +10,9 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var teamLbl: UILabel!
-    @IBOutlet weak var teamImageView: UIImageView!
+    @IBOutlet weak var teamImageView: CustomImageview!
     
-    var teamList : TeamsModel? {
+    var animalList : AnimalData? {
         didSet {
            setUpDataForCell()
         }
@@ -28,11 +28,13 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func setUpDataForCell() {
-        if let teamName = teamList?.name {
+        if let teamName = animalList?.name {
             teamLbl.text = teamName
         }
-        if let teamLogo = teamList?.teamLogo{
-            teamImageView.image = UIImage(named: teamLogo)
+        if let teamLogo = animalList?.image{
+            if let url = URL(string: teamLogo){
+                teamImageView.loadImage(url: url)
+            }
         }
     }
 }

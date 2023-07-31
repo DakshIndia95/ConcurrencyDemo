@@ -13,32 +13,45 @@ protocol SearchServices: AnyObject {
     func showError()
 }
 
-struct SearchViewModel {
-    var teamData : [TeamsModel] = [] {
+class SearchViewModel {
+    var animalModel : AnimalModel? {
         didSet {
             delegate?.reloadData()
         }
     }
+    var dispatchWorkItem: DispatchWorkItem?
     weak var delegate : SearchServices?
-    private let jsonHelper = JSONHelper()
+    private let apiHandler = ApiHandler()
     
-    mutating func getTeamsData(){
-        if let teamsResponseArray = jsonHelper.loadJsonDataFromFile() {
-            teamData = teamsResponseArray
-        }else {
-            delegate?.showError()
+    func getAnimalsData(animal:String){
+        dispatchWorkItem?.cancel()
+        
+        let requestWorkItem = DispatchWorkItem { [weak self] in
+            self?.apiHandler.fetchDataWithoutAsync(url: AppUrl.animalURL+animal, type: AnimalModel.self) {[weak self] result in
+                switch result {
+                    case .success(let animalArray):
+                        self?.animalModel = animalArray
+                    case .failure(_):
+                        self?.delegate?.showError()
+                }
+            }
         }
+
+        dispatchWorkItem = requestWorkItem
+        DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500), execute: requestWorkItem)
     }
 }
 
 extension SearchViewModel {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return teamData.count
+        return animalModel?.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchCell, for: indexPath) as! SearchTableViewCell
-        cell.teamList = teamData[safe: indexPath.row]
+        if let data = animalModel?.data {
+            cell.animalList = data[safe: indexPath.row]
+        }
         return cell
     }
 }

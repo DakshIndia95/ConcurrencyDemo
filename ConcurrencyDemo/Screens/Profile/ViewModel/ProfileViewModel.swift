@@ -15,7 +15,7 @@ protocol ProfileServices: NSObject {
 
 class ProfileViewModel {
     
-    var userModel : [UserModel] = [] {
+    var userModel : [UserModel]? {
         didSet {
             delegate?.reloadData()
         }
@@ -27,7 +27,7 @@ class ProfileViewModel {
     @MainActor func fetchUserUsingAsync(){
         Task {
             do {
-                let userResponseArray : [UserModel] = try await apiHandler.fetchUserUsingAsync(url: AppUrl.userUrl)
+                let userResponseArray : [UserModel] = try await apiHandler.fetchDataUsingAsync(url: AppUrl.userUrl)
                 userModel = userResponseArray
             }catch{
                 delegate?.showError(error: error)
@@ -39,12 +39,14 @@ class ProfileViewModel {
 
 extension ProfileViewModel {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userModel.count
+        return userModel?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.profileCell, for: indexPath) as! ProfileTableViewCell
-        cell.userList = userModel[safe: indexPath.row]
+        if let user = userModel {
+            cell.userList = user[safe: indexPath.row]
+        }
         return cell
     }
 }

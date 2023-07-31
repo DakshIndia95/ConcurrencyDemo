@@ -17,9 +17,8 @@ class SearchController : UIViewController {
     lazy var viewModel = SearchViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpTableView()
-        getTeamsListFromJson()
+        searchBar.delegate = self
     }
     
     func setUpTableView() {
@@ -27,29 +26,17 @@ class SearchController : UIViewController {
         searchListTableView.register(nib, forCellReuseIdentifier: CellIdentifier.searchCell)
         searchListTableView.delegate = self
         searchListTableView.dataSource = self
-    }
-    
-    //MARK: function for getting team list from json
-    func getTeamsListFromJson() {
         viewModel.delegate = self
-        viewModel.getTeamsData()
     }
 }
 
 extension SearchController : SearchServices {
     func showError() {
-        searchListTableView.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.searchListTableView.isHidden = true
+        }
     }
     func reloadData() {
         searchListTableView.reloadData()
-    }
-}
-extension SearchController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.tableView(tableView, numberOfRowsInSection: section)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
 }
