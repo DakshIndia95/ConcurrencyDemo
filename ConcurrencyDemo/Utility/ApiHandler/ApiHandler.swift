@@ -47,7 +47,6 @@ struct ApiHandler {
             }
             do {
                 let apiResponse = try JSONDecoder().decode(type, from: data)
-                print("Api response: \(apiResponse)")
                 DispatchQueue.main.async {
                     completion(.success(apiResponse))
                 }

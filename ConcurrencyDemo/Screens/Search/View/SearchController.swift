@@ -37,6 +37,7 @@ extension SearchController : SearchServices {
         }
     }
     func reloadData() {
+        searchListTableView.isHidden = false
         searchListTableView.reloadData()
     }
 }
