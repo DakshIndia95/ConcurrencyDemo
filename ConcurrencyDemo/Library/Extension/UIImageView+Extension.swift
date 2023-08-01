@@ -38,15 +38,15 @@ class CustomImageview: UIImageView {
     }
     
     /* load image with operation queue*/
-    func loadImgWithOperation(url:String){
-        ImageDownloadManager.shared.downloadImage(imgUrl: url) {[weak self] image, error  in
+    func loadImgWithOperation(url:String, indexPath: IndexPath?){
+        ImageDownloadManager.shared.downloadImage(imgUrl: url, indexPath: indexPath) {[weak self] image, _, error  in
             DispatchQueue.main.async {
                 self?.image = image
             }
         }
     }
     /* load image with operation queue with low priority*/
-    func loadImgWithLowPriorityOperation(url:String){
-        ImageDownloadManager.shared.downloadImageWithLowPriority(imgUrl: url)
+    func loadImgWithLowPriorityOperation(url:String, indexPath: IndexPath?){
+        ImageDownloadManager.shared.downloadImageWithLowPriority(imgUrl: url, indexPath: indexPath)
     }
 }

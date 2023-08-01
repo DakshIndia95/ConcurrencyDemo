@@ -44,8 +44,9 @@ class DownloadOperation : Operation {
         _finished = finish
     }
     
-    required init(imageUrl: URL!) {
+    required init(imageUrl: URL!,indexPath: IndexPath?) {
         self.imageUrl = imageUrl
+        self.indexPath = indexPath
     }
     
     override func main() {
@@ -60,11 +61,11 @@ class DownloadOperation : Operation {
     func downloadImageFromUrl() {
         let task = URLSession.shared.dataTask(with: imageUrl) { data, response, err in
             guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-                self.downloadHandler?(nil, .invalidResponse)
+                self.downloadHandler?(nil, self.indexPath, .invalidResponse)
                 return
             }
             if let data = data,let newImage = UIImage(data: data) {
-                self.downloadHandler?(newImage, nil)
+                self.downloadHandler?(newImage, self.indexPath, nil)
             }
         }
         self.finish(true)

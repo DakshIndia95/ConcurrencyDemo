@@ -26,8 +26,15 @@ class HomeController : UIViewController {
         homeCollection.register(nib, forCellWithReuseIdentifier: CellIdentifier.homeCell)
         homeCollection.delegate = self
         homeCollection.dataSource = self
-        
-        homeCollection.reloadData()
+        homeCollection.delegate = self
+    }
+}
+
+extension HomeController: HomeServices {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.homeCollection.reloadData()
+        }
     }
 }
 
@@ -39,13 +46,12 @@ extension HomeController : UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return homeViewModel.collectionView(collectionView, cellForItemAt: indexPath)
     }
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        homeViewModel.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        homeViewModel.collectionView(collectionView, didEndDisplaying: cell, forItemAt: indexPath)
-//    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        homeViewModel.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        homeViewModel.collectionView(collectionView, didEndDisplaying: cell, forItemAt: indexPath)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.width/2)

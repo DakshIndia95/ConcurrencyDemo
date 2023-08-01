@@ -15,11 +15,4 @@ class HomeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func loadImageView(url:String){
-        animalImg.loadImgWithOperation(url: url)
-    }
-    func loadImageWithLowPriority(url:String){
-        animalImg.loadImgWithLowPriorityOperation(url: url)
-    }
 }
