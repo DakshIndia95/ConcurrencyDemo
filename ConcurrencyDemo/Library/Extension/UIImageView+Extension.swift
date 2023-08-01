@@ -36,4 +36,17 @@ class CustomImageview: UIImageView {
         }
         task.resume()
     }
+    
+    /* load image with operation queue*/
+    func loadImgWithOperation(url:String){
+        ImageDownloadManager.shared.downloadImage(imgUrl: url) {[weak self] image, error  in
+            DispatchQueue.main.async {
+                self?.image = image
+            }
+        }
+    }
+    /* load image with operation queue with low priority*/
+    func loadImgWithLowPriorityOperation(url:String){
+        ImageDownloadManager.shared.downloadImageWithLowPriority(imgUrl: url)
+    }
 }

@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-lI-9rx">
                         <rect key="frame" x="0.0" y="0.0" width="155" height="118"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="India" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-LO-seB" customClass="CustomImageview" customModule="ConcurrencyDemo" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eGy-LO-seB" customClass="CustomImageview" customModule="ConcurrencyDemo" customModuleProvider="target">
                                 <rect key="frame" x="4" y="4" width="147" height="110"/>
                             </imageView>
                         </subviews>
@@ -49,6 +49,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="India" width="1920" height="1080"/>
+        <image name="placeholder" width="275" height="183"/>
     </resources>
 </document>

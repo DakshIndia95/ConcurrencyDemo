@@ -17,3 +17,8 @@ struct CellIdentifier {
     static let homeCell = "homeCell"
     static let profileCell = "profileCell"
 }
+
+struct OperationsConstant {
+    static let isExecuting = "IsExecuting"
+    static let isFinished = "IsFinished"
+}

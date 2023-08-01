@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A4FEC32A78D3890016B2DA /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A4FEC22A78D3890016B2DA /* ImageDownloadManager.swift */; };
+		18A4FEC62A78D3F10016B2DA /* DownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A4FEC52A78D3F10016B2DA /* DownloadOperation.swift */; };
+		18A4FEC82A78E05C0016B2DA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A4FEC72A78E05C0016B2DA /* HomeViewModel.swift */; };
 		18FFE1592A777B0E0032DEA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFE1582A777B0E0032DEA6 /* AppDelegate.swift */; };
 		18FFE15B2A777B0E0032DEA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFE15A2A777B0E0032DEA6 /* SceneDelegate.swift */; };
 		18FFE1602A777B0E0032DEA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FFE15E2A777B0E0032DEA6 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18A4FEC22A78D3890016B2DA /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
+		18A4FEC52A78D3F10016B2DA /* DownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
+		18A4FEC72A78E05C0016B2DA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		18FFE1552A777B0E0032DEA6 /* ConcurrencyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConcurrencyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FFE1582A777B0E0032DEA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18FFE15A2A777B0E0032DEA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A4FEC02A78D3450016B2DA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				18A4FEC42A78D3D50016B2DA /* Operations */,
+				18A4FEC12A78D3630016B2DA /* ImageDownloadManager */,
+				18FFE1952A77985F0032DEA6 /* Extension */,
+				18FFE1922A77984B0032DEA6 /* Utility */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		18A4FEC12A78D3630016B2DA /* ImageDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				18A4FEC22A78D3890016B2DA /* ImageDownloadManager.swift */,
+			);
+			path = ImageDownloadManager;
+			sourceTree = "<group>";
+		};
+		18A4FEC42A78D3D50016B2DA /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				18A4FEC52A78D3F10016B2DA /* DownloadOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		18FFE14C2A777B0E0032DEA6 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +128,8 @@
 				18FFE16C2A777BE20032DEA6 /* Application */,
 				18FFE16D2A777BF80032DEA6 /* Storyboards */,
 				18FFE16E2A777C220032DEA6 /* Resource */,
-				18FFE1922A77984B0032DEA6 /* Utility */,
+				18A4FEC02A78D3450016B2DA /* Library */,
+				18FFE19B2A77AD8D0032DEA6 /* ApiHandler */,
 				18FFE16F2A777C650032DEA6 /* Screens */,
 				18FFE1662A777B100032DEA6 /* Info.plist */,
 			);
@@ -178,6 +212,7 @@
 		18FFE17A2A7782C80032DEA6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				18A4FEC72A78E05C0016B2DA /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -239,8 +274,6 @@
 		18FFE1922A77984B0032DEA6 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				18FFE19B2A77AD8D0032DEA6 /* ApiHandler */,
-				18FFE1952A77985F0032DEA6 /* Extension */,
 				18FFE1932A77985A0032DEA6 /* Constant.swift */,
 			);
 			path = Utility;
@@ -382,9 +415,12 @@
 				18FFE1A52A77B1A00032DEA6 /* ProfileTableViewCell.swift in Sources */,
 				18FFE1A82A77B9CF0032DEA6 /* SearchDelegate+Extension.swift in Sources */,
 				18FFE1A12A77AFE10032DEA6 /* ProfileViewModel.swift in Sources */,
+				18A4FEC32A78D3890016B2DA /* ImageDownloadManager.swift in Sources */,
 				18FFE17F2A7782FE0032DEA6 /* HomeCollectionViewCell.swift in Sources */,
 				18FFE1AC2A77CC720032DEA6 /* UIImageView+Extension.swift in Sources */,
 				18FFE1942A77985A0032DEA6 /* Constant.swift in Sources */,
+				18A4FEC62A78D3F10016B2DA /* DownloadOperation.swift in Sources */,
+				18A4FEC82A78E05C0016B2DA /* HomeViewModel.swift in Sources */,
 				18FFE18F2A778BA00032DEA6 /* AnimalModel.swift in Sources */,
 				18FFE19D2A77ADB30032DEA6 /* ApiHandler.swift in Sources */,
 				18FFE1AA2A77B9E50032DEA6 /* TableViewDelegate+Extension.swift in Sources */,
